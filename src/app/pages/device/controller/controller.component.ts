@@ -69,8 +69,18 @@ export class ControllerComponent implements OnInit{
       },
       error: (error: Error) => {
         this.errorMessage = error.message;
-        this.router.navigate(['/connection']);
       }
     })
   }  
+
+  moveToInitialPosition(){
+    this.robotService.moveToInitialPosition(this.uuid).subscribe({
+      next: (response: any) => {
+        console.log(response);
+      },
+      error: (error: Error) => {
+        this.errorMessage = error.message;
+      }
+    })
+  }
 }

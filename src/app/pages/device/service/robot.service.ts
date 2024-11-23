@@ -44,6 +44,17 @@ export class RobotService {
     );
   }  
 
+  moveToInitialPosition(robotToken: string) {
+    // let URL = URL_SERVICIOS + "/robot/execute-movement/" + movementId + "/" + robotToken;
+    let URL = `${URL_SERVICIOS}/robot/move-initial-position/${robotToken}`;
+    let headers = new HttpHeaders({
+      'Authorization':"Bearer " + localStorage.getItem("token")
+    });
+    return this.httpClient.post<any>(URL, {}, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }  
+
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unexpected error during authentication';

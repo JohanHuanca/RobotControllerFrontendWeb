@@ -11,6 +11,11 @@
     <!-- Mostrar botones de movimiento -->
     <div class="row g-3">
         @if (robotButtons.length > 0){
+        <div class="col-6 col-md-4 col-lg-3">
+            <button type="button" class="btn btn-primary w-100" (click)="moveToInitialPosition()">
+                initial position
+            </button>
+        </div>
         @for (button of robotButtons; track button){
         <div class="col-6 col-md-4 col-lg-3">
             <button type="button" class="btn btn-primary w-100" (click)="exacuteMovementById(button.id)">

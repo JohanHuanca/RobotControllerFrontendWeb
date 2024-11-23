@@ -5,6 +5,7 @@ import { ControllerComponent } from './pages/device/controller/controller.compon
 export const routes: Routes = [
     { path: '', redirectTo: 'connection', pathMatch: 'full'},
     { path: 'controller', component: ControllerComponent },
-    { path: 'connection', component: ConnectionComponent }
+    { path: 'connection', component: ConnectionComponent },
+    { path: '**', redirectTo: 'connection', pathMatch: 'full' }
 ];
 
