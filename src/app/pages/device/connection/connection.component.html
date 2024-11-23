@@ -1,0 +1,36 @@
+<div class="container my-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @if (robots.length > 0){
+            @for (robot of robots; track robot){
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <!-- Nombre del robot -->
+                            <h5 class="card-title">{{ robot.botname }}</h5>
+
+                            <!-- Número de servos y estado de conexión -->
+                            <p class="card-text">
+                                Servos: {{ robot.initial_position.length }}<br>
+                                Status:
+                                <span [class]="robot.is_connected_broker ? 'text-success' : 'text-danger'">
+                                    {{ robot.is_connected_broker ? 'Connected' : 'Disconnected' }}
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- Botón de eliminar -->
+                        <div class="card-footer d-flex flex-wrap gap-2">
+                            <button type="button" class="btn btn-success w-100" (click)="selectRobot(robot)">
+                                control with buttons
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }@else{
+            <div class="text-center">
+                <p>No robots found.</p>
+            </div>
+        }
+    </div>
+</div>

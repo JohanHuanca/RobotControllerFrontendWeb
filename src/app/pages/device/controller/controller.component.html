@@ -1,0 +1,26 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12 text-center mb-4">
+            <h1>Robot Controller</h1>
+            <p *ngIf="robot">
+                Controlling: <strong>{{ robot.botname }}</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Mostrar botones de movimiento -->
+    <div class="row g-3">
+        @if (robotButtons.length > 0){
+        @for (button of robotButtons; track button){
+        <div class="col-6 col-md-4 col-lg-3">
+            <button type="button" class="btn btn-primary w-100" (click)="exacuteMovementById(button.id)">
+                {{ button.name }}
+            </button>
+        </div>
+        }}@else{
+        <div class="col-12 text-center">
+            <p>No movements available for this robot.</p>
+        </div>
+        }
+    </div>
+</div>
